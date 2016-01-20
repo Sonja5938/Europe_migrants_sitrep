@@ -212,7 +212,8 @@ var lg =  {
 
             data.forEach(function(d,i){
                 if(column._valueAccessor(d.value)==null||isNaN(column._valueAccessor(d.value))||column._valueAccessor(d.value)===''){
-                    d3.selectAll('.dashgeom'+d.key).attr('fill','#cccccc').attr('fill-opacity',0.8);
+                    //d3.selectAll('.dashgeom'+d.key).attr('fill','#cccccc').attr('fill-opacity',0.8);
+                    d3.selectAll('.dashgeom'+d.key).attr('fill','#eeeded').attr('fill-opacity',0.8);
                 } else {                        
                     var c = column._colorAccessor(d.value,i,max);
                     d3.selectAll('.dashgeom'+d.key).attr('fill',column._colors[c]).attr('fill-opacity',0.8);
@@ -228,7 +229,7 @@ var lg =  {
         this._labelName = dataName;
         this._scale = d3.scale.linear();
         this._domain = 'default';
-        this._axisLabels = true;
+        this._axisLabels = false;
         this._colors = 'default';
 
         this.label = function(val){
@@ -518,7 +519,8 @@ var lg =  {
                     .attr("height", _parent._properties.boxHeight)
                     .attr("fill",function(d,i2){
                         if(v._valueAccessor(d.value)==null||isNaN(v._valueAccessor(d.value)) || v._valueAccessor(d.value)===''){
-                            return '#cccccc';
+                            //return '#cccccc';
+                            return '#eeeded';
                         }                        
                         var c = v._colorAccessor(d.value,i2,max)
                         return v._colors[c];
