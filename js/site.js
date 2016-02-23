@@ -19,7 +19,7 @@ function generateDashboard(data,geom){
 	
 	var resLocs = new lg.column('Response Locations');   //change this 
 	
-	var pplReached = new lg.column('Total people reached').label('Total RC interactions');
+	var pplReached = new lg.column('Total People Reached').label('Total RC Interactions');
 	
 /* 	var domAppeal = new lg.column('Domestic appeal (Y/N)').domain([0,1]).axisLabels(false).valueAccessor(function(d){
         if(d=='Yes' || d== 'No'){
@@ -47,7 +47,7 @@ function generateDashboard(data,geom){
 
 	
 	
-	var updateDates = new lg.column('Last data update').axisLabels(false)
+	var updateDates = new lg.column('Last Update').axisLabels(false)
     .scale(d3.time.scale())
  	.domain([0,Date.now()])   
     .labelAccessor(function(d){
@@ -57,7 +57,7 @@ function generateDashboard(data,geom){
 			var day = d.getDate();
 			return day+'/'+month+'/'+year;
 		} else {
-            return 'No data reported';
+            return 'No Data Reported';
         }
     })
  	.valueAccessor(function(d){
@@ -96,7 +96,7 @@ function generateDashboard(data,geom){
         .joinAttr('ISO 3 code')
         .hWhiteSpace(10)
         .vWhiteSpace(5)
- 		.columns(['Total Migrants 2015-2016', resLocs, 'Active volunteers', 'Active staff', 'Active full-time equivalent', 'Bednights in long-term shelter - total', 'Bednights in long-term shelter this week', 'Bednights in short-term shelter - total', 'Bednights in short-term shelter this week', 'Distributions: Relief kits', 'Distributions: Hygiene items', 'Distributions: Food parcels', 'Distributions: Meals', 'Distributions: Water bottles', 'Distributions: Hot and cold drinks', 'Distributions: Blankets and sleeping bags', 'Distributions: Clothing', 'Provision of connectivity', 'Provision of medical care', 'Provision of first aid', 'Provision of psychosocial support', 'RFL requests', 'RFL reunifications', pplReached, updateDates]) 
+ 		.columns(['Total Migrants 2015-2016', resLocs, 'Active Volunteers', 'Active Staff', 'Active full-time equivalent', 'Bednights: Long-Term Shelters', 'Bednights: Short-Term Shelters', 'Distributions: Relief Kits', 'Distributions: Hygiene Items', 'Distributions: Food Parcels', 'Distributions: Meals', 'Distributions: Water Bottles', 'Distributions: Hot and Cold Drinks', 'Distributions: Blankets and Sleeping Bags', 'Distributions: Clothing', 'Provision of Connectivity', 'Provision of Medical Care', 'Provision of First Aid', 'Provision of Psychosocial Support', 'RFL Requests', 'RFL Reunifications', pplReached, updateDates]) 
         .margins({top: 180, right: 62, bottom: 20, left: 290});
 	//lg.colors(['#edf8fb','#b2e2e2','#66c2a4','#2ca25f','#006d2c']);  //blue-green multi-hue
 	lg.colors(['#feebe2','#fbb4b9','#f768a1','#c51b8a','#7a0177']);  //pink-purple multi-hue
@@ -148,15 +148,15 @@ function generateStats(id,data){
 	
 	for(var i = 0; i < data.length; i++) {
  		//numPplReached = parseInt(data[i]["Total people reached"]);
-		numVols = parseInt(data[i]["Active volunteers"]);
-		numFoodParc = parseInt(data[i]["Distributions: Food parcels"]);
+		numVols = parseInt(data[i]["Active Volunteers"]);
+		numFoodParc = parseInt(data[i]["Distributions: Food Parcels"]);
 		numMeals = parseInt(data[i]["Distributions: Meals"]);
-		numMedCare = parseInt(data[i]["Provision of medical care"]);
-		numFirstAid = parseInt(data[i]["Provision of first aid"]); 
-		numPSS = parseInt(data[i]["Provision of psychosocial support"]);
+		numMedCare = parseInt(data[i]["Provision of Medical Care"]);
+		numFirstAid = parseInt(data[i]["Provision of First Aid"]); 
+		numPSS = parseInt(data[i]["Provision of Psychosocial Support"]);
 		numClothing = parseInt(data[i]["Distributions: Clothing"]); 
-		numBlanketsSlBags = parseInt(data[i]["Distributions: Blankets and sleeping bags"]); 
-		numConnect = parseInt(data[i]["Provision of connectivity"]);
+		numBlanketsSlBags = parseInt(data[i]["Distributions: Blankets and Sleeping Bags"]); 
+		numConnect = parseInt(data[i]["Provision of Connectivity"]);
 		//if (!isNaN(numPplReached)) {totalPplReached += numPplReached;};
 		if (!isNaN(numVols)) {totalVols += numVols;}; 
 		if (!isNaN(numFoodParc)) {totalFoodDists += numFoodParc;}; 
@@ -187,44 +187,44 @@ function generateStats(id,data){
 function getCountryStats(countryData) {
 	var formatComma = d3.format(",.0f");
 	var formatPerc = d3.format(",.1%");
-	numPplReached = parseInt(countryData["Total people reached"]);
-			numVols = parseInt(countryData["Active volunteers"]);
-			numFoodParc = parseInt(countryData["Distributions: Food parcels"]);
+	numPplReached = parseInt(countryData["Total People Reached"]);
+			numVols = parseInt(countryData["Active Volunteers"]);
+			numFoodParc = parseInt(countryData["Distributions: Food Parcels"]);
 			numMeals = parseInt(countryData["Distributions: Meals"]);
-			numMedCare = parseInt(countryData["Provision of medical care"]);
-			numFirstAid = parseInt(countryData["Provision of first aid"]); 
-			numPSS = parseInt(countryData["Provision of psychosocial support"]);
+			numMedCare = parseInt(countryData["Provision of Medical Care"]);
+			numFirstAid = parseInt(countryData["Provision of First Aid"]); 
+			numPSS = parseInt(countryData["Provision of Psychosocial Support"]);
 			numClothing = parseInt(countryData["Distributions: Clothing"]); 
-			numBlanketsSlBags = parseInt(countryData["Distributions: Blankets and sleeping bags"]); 
-			numConnect = parseInt(countryData["Provision of connectivity"]);
+			numBlanketsSlBags = parseInt(countryData["Distributions: Blankets and Sleeping Bags"]); 
+			numConnect = parseInt(countryData["Provision of Connectivity"]);
 			
 			totalFoodDists = 0;
 			totalMeds = 0;
 			totalTextiles = 0;
 			
 			
-			if (isNaN(numPplReached)) {numPplReached='No data';}
+			if (isNaN(numPplReached)) {numPplReached='No Data';}
 			else {numPplReached=formatComma(numPplReached)};
 			if (isNaN(numVols)) {numVols='No data';}
 			else {numVols=formatComma(numVols)};
 			
 			if (!isNaN(numFoodParc)) {totalFoodDists += numFoodParc;}; 
 			if (!isNaN(numMeals)) {totalFoodDists += numMeals;}; 
-			if (isNaN(numFoodParc) && isNaN(numMeals)) {totalFoodDists='No data';}
+			if (isNaN(numFoodParc) && isNaN(numMeals)) {totalFoodDists='No Data';}
 			else {totalFoodDists=formatComma(totalFoodDists);};
 			
 			if (!isNaN(numMedCare)) {totalMeds += numMedCare; formatComma(totalMeds);};
 			if (!isNaN(numFirstAid)) {totalMeds += numFirstAid; formatComma(totalMeds);}; 
 			if (!isNaN(numPSS)) {totalMeds += numPSS; formatComma(totalMeds);}; 
-			if (isNaN(numMedCare) && isNaN(numFirstAid) && isNaN(numPSS)) {totalMeds='No data';}
+			if (isNaN(numMedCare) && isNaN(numFirstAid) && isNaN(numPSS)) {totalMeds='No Data';}
 			else {totalMeds=formatComma(totalMeds);};
 			
 			if (!isNaN(numClothing)) {totalTextiles += numClothing; formatComma(totalTextiles);}; 
 			if (!isNaN(numBlanketsSlBags)) {totalTextiles += numBlanketsSlBags; formatComma(totalTextiles);}; 
-			if (isNaN(numClothing) && isNaN(numBlanketsSlBags)) {totalTextiles='No data';}
+			if (isNaN(numClothing) && isNaN(numBlanketsSlBags)) {totalTextiles='No Data';}
 			else {totalTextiles=formatComma(totalTextiles);};
 			
-			if (isNaN(numConnect)) {numConnect='No data';}
+			if (isNaN(numConnect)) {numConnect='No Data';}
 			else {numConnect=formatComma(numConnect)};
 			
 			return [numPplReached, numVols, totalFoodDists, totalMeds, totalTextiles, numConnect];
@@ -394,7 +394,7 @@ $.when(dataCall, geomCall).then(function(dataArgs, geomArgs){
     //console.log(data);
 	var dateFormat = d3.time.format("%m/%d/%Y");
     data.forEach(function(d){
-        d['Last data update'] = dateFormat.parse(d['Last data update']);
+        d['Last Update'] = dateFormat.parse(d['Last Update']);
     });
     generateDashboard(data,geom);
 	generateStats("#key_stats",data);
