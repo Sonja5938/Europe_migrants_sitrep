@@ -96,7 +96,7 @@ function generateDashboard(data,geom){
         .joinAttr('ISO 3 code')
         .hWhiteSpace(10)
         .vWhiteSpace(5)
- 		.columns(['Total Migrants 2015-2016', resLocs, 'Active Volunteers', 'Active Staff', 'Active full-time equivalent', 'Bednights: Long-Term Shelters', 'Bednights: Short-Term Shelters', 'Distributions: Relief Kits', 'Distributions: Hygiene Items', 'Distributions: Food Parcels', 'Distributions: Meals', 'Distributions: Water Bottles', 'Distributions: Hot and Cold Drinks', 'Distributions: Blankets and Sleeping Bags', 'Distributions: Clothing', 'Provision of Connectivity', 'Provision of Medical Care', 'Provision of First Aid', 'Provision of Psychosocial Support', 'RFL Requests', 'RFL Reunifications', pplReached, updateDates]) 
+ 		.columns(['Total Migrants 2015-2016', resLocs, 'Active Volunteers', 'Active Staff', 'Active full-time equivalent', 'Bednights: Long-Term Shelters', 'Bednights: Short-Term Shelters', 'Distributions: Relief Kits', 'Distributions: Hygiene Items', 'Distributions: Food Parcels', 'Distributions: Meals', 'Distributions: Water Bottles', 'Distributions: Hot and Cold Drinks', 'Distributions: Blankets and Sleeping Bags', 'Distributions: Clothing', 'Provision of Connectivity', 'Provision of Medical Care', 'Provision of First Aid', 'Provision of Psychosocial Support', 'RFL Tracing Requests', 'RFL Successful Tracing Requests', pplReached, updateDates]) 
         .margins({top: 180, right: 62, bottom: 20, left: 290});
 	//lg.colors(['#edf8fb','#b2e2e2','#66c2a4','#2ca25f','#006d2c']);  //blue-green multi-hue
 	lg.colors(['#feebe2','#fbb4b9','#f768a1','#c51b8a','#7a0177']);  //pink-purple multi-hue
