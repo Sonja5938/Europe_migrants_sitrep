@@ -386,7 +386,7 @@ var geomCall = $.ajax({
 });
 
 //when both ready construct dashboard
-
+var date_updated = new Date();
 $.when(dataCall, geomCall).then(function(dataArgs, geomArgs){
     var geom = topojson.feature(geomArgs[0],geomArgs[0].objects.geom);
     //console.log(geom);
@@ -395,9 +395,10 @@ $.when(dataCall, geomCall).then(function(dataArgs, geomArgs){
 	var dateFormat = d3.time.format("%m/%d/%Y");
     data.forEach(function(d){
         d['Last Update'] = dateFormat.parse(d['Last Update']);
+		if (d['Country']=='Austria') {date_updated=d['Last Update'];};
     });
+	$("#date_update").html("<p class='desc'><i>Date Updated:  " + date_updated.getDate() + " / " + (date_updated.getMonth()+1) + " / " + date_updated.getFullYear() + "</i></p>");
     generateDashboard(data,geom);
 	generateStats("#key_stats",data);
-	
 });
 
