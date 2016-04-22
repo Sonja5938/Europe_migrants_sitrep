@@ -1,9 +1,36 @@
+
+body {
+	font-family: "Gotham-Light", sans-serif;
+}
 .title{
-	font-size: 27px;
+	font-weight: bold;
+}
+
+.container {
+	width: 80%;
 }
 
 .subtitle{
-	font-size: 12px;
+	font-size: 2em;
+}
+
+.title {
+	font-weight: bold;
+}
+
+p {
+	font-size: 1.2em;
+	color: #555;
+}
+
+.desc {
+	font-size: .8em;
+	color: #777;
+	text-align: right;
+}
+
+.right {
+	float: right;
 }
 
 .spacer_md {
@@ -12,6 +39,10 @@
 
 .spacer_sm {
 	margin-top: 5px;
+}
+
+#portal {
+	color: #ffffff;
 }
 
 .loading_msg {
@@ -65,13 +96,19 @@ th {
     width: 150px;
 }
 
-#intro {
+.btn {
 	background: #e60000;  /* button colour */
 	color: #ffffff;  	  /* text colour */
 	border: #e60000;
 	font-weight: bold;
 	font-size: 13px;
 	
+}
+
+#logo {
+	float: right;
+	width: 100%;
+	margin-top: 10px;
 }
 
 /* .sticky {
